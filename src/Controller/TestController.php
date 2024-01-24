@@ -23,7 +23,7 @@ class TestController
     {
         $message = $request->query->get('message', 'Сообщение не передано');
 
-        $event = new TestEvent($message);
+        $event = new TestEvent((string) $message);
         $this->eventDispatcher->dispatch($event);
 
         return new Response('Event dispatched with message: ' . $message);
